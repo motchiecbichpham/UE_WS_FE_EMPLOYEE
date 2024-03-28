@@ -1,0 +1,72 @@
+.job-card {
+  display: flex;
+  align-items: center;
+  width: 360px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background-color: #ccc;
+}
+
+mat-card-header {
+  display: flex;
+  width: 90%;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  height: 60px;
+}
+
+mat-card-title,
+mat-card-subtitle {
+  max-height: calc(1.2em * 2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  align-self: flex-start;
+}
+
+mat-card-content {
+  display: flex;
+  text-align: justify;
+  padding-bottom: 8px;
+}
+
+mat-card-content p {
+  max-height: calc(1.5em * 4);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: pre-line;
+}
+
+mat-card-actions {
+  display: flex;
+  width: 100%;
+}
+
+mat-card-actions button {
+  flex: 1;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  height: 40px;
+}
+
+mat-card-actions button:first-child {
+  margin-right: 16px;
+}
+
+mat-card-actions button:nth-child(1) {
+  color: #fff;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+mat-card-actions button:nth-child(2) {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+

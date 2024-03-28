@@ -1,0 +1,10 @@
+.job-card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+app-job-card{
+  margin: 4px;
+  margin-top: 20px;
+}

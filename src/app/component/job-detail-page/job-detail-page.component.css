@@ -1,0 +1,76 @@
+.job-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin-top: 20px;
+}
+
+.job-summary-card {
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.job-description-card {
+  width: 80%;
+}
+mat-card-title,
+mat-card-subtitle {
+  max-height: calc(1.2em * 2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  align-self: flex-start;
+}
+.info-label {
+  margin-right: 5px; /* Add some space between the icon and label */
+}
+.avatar {
+  width: 64px;
+  height: 64px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+mat-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+mat-card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.info-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  height: 48;
+  width: 30%;
+}
+
+.info-container-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-icon {
+  margin-right: 10px;
+  color: var(--primary);
+  font-size: 32px;
+  height: 100%;
+  width: 48px;
+}
+
+.info-text {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.job-description-card p {
+  margin: 0;
+}

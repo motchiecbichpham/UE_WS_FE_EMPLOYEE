@@ -1,0 +1,42 @@
+<div class="job-detail-container">
+  <mat-card class="job-summary-card">
+    <mat-card-header>
+      <div mat-card-avatar class="avatar"></div>
+      <mat-card-title>{{ job.title }}aaa</mat-card-title>
+      <mat-card-subtitle>{{ job.company }}aaaa</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="info-container">
+        <mat-icon class="info-icon">attach_money</mat-icon>
+        <div class="info-container-item">
+          <span class="info-label">Salary</span>
+          <span class="info-text">{{ job.salary }}</span>
+        </div>
+      </div>
+      <div class="info-container">
+        <mat-icon class="info-icon">location_on</mat-icon>
+        <div class="info-container-item">
+
+        <span class="info-label">Location</span>
+        <span class="info-text">{{ job.location }}</span>
+        </div>
+
+      </div>
+      <div class="info-container">
+        <mat-icon class="info-icon">work</mat-icon>
+        <div class="info-container-item">
+        <span class="info-label">Experience required</span>
+        <span class="info-text">{{ job.experience }}</span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="job-description-card">
+    <mat-card-header>
+      <mat-card-title>Description</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ job.description }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,46 @@
+.profile-card {
+  margin: auto;
+  padding: 32px;
+  padding-top: 20px;
+  justify-content: center;
+  width: 60%;
+  margin-top: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-card-header{
+  justify-content: center;
+  padding: 0px;
+}
+mat-form-field {
+  margin-bottom: 20px;
+}
+
+mat-card-actions {
+  display:flex;
+}
+
+mat-card-actions button {
+  flex: 1;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  height: 48px;
+}
+
+mat-card-actions button:first-child {
+  margin-right: 16px;
+}
+
+mat-card-actions button:nth-child(1) {
+  color: #fff;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+mat-card-actions button:nth-child(2) {
+  color: var(--primary);
+  border-color: var(--primary);
+}
