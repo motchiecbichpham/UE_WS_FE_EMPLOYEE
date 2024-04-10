@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Job } from '../../type/job';
 
 @Component({
   selector: 'app-job-card',
@@ -6,5 +7,10 @@ import { Component, Input } from '@angular/core';
   styleUrl: './job-card.component.css',
 })
 export class JobCardComponent {
-  @Input() job: any;
+  @Input() job: Job | undefined;
+  @Output() viewClicked: EventEmitter<Job> = new EventEmitter<Job>();
+
+  onViewClick() {
+    this.viewClicked.emit(this.job);
+  }
 }

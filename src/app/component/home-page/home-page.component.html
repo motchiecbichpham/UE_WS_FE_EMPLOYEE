@@ -1,3 +1,14 @@
+<div class="banner">
+  <img
+    src="../../../assets/Career.png"
+    alt="Banner Image"
+    class="banner-image"
+  />
+</div>
 <div class="job-card-list">
-  <app-job-card *ngFor="let job of jobList" [job]="job"></app-job-card>
+  <app-job-card
+    (viewClicked)="onViewJob($event)"
+    *ngFor="let job of jobList"
+    [job]="job"
+  ></app-job-card>
 </div>

@@ -1,42 +1,86 @@
-<div class="job-detail-container">
-  <mat-card class="job-summary-card">
-    <mat-card-header>
-      <div mat-card-avatar class="avatar"></div>
-      <mat-card-title>{{ job.title }}aaa</mat-card-title>
-      <mat-card-subtitle>{{ job.company }}aaaa</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="info-container">
-        <mat-icon class="info-icon">attach_money</mat-icon>
-        <div class="info-container-item">
-          <span class="info-label">Salary</span>
-          <span class="info-text">{{ job.salary }}</span>
+<div class="container">
+  <div class="job-detail-container">
+    <mat-card class="job-company-card">
+      <mat-card-header>
+        <mat-card-title>{{ job?.company?.name }}</mat-card-title>
+        <mat-card-subtitle>{{ job?.company?.introduction }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="info-container">
+        <div class="info-container-i">
+          <mat-icon class="info-icon">location_on</mat-icon>
+          <div class="info-container-item">
+            <span class="info-label">Address</span>
+            <span class="info-text">
+              {{ job?.company?.address }}, {{ job?.company?.city }}</span
+            >
+          </div>
         </div>
-      </div>
-      <div class="info-container">
-        <mat-icon class="info-icon">location_on</mat-icon>
-        <div class="info-container-item">
+        <div class="info-container-i">
+          <mat-icon class="info-icon">mail</mat-icon>
+          <div class="info-container-item">
+            <span class="info-label">Contact:</span>
+            <span class="info-text">{{ job?.company?.contact }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
 
-        <span class="info-label">Location</span>
-        <span class="info-text">{{ job.location }}</span>
+    <mat-card class="job-company-card">
+      <mat-card-header>
+        <mat-card-title>Job overview</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="job-details">
+        <div>
+          <p><strong>Title:</strong> {{ job?.title }}</p>
+          <p><strong>Hiring Amount:</strong> {{ job?.amountHiring }}</p>
+          <p><strong>Salary:</strong> {{ job?.salary }} €/month</p>
+          <p><strong>Workplace:</strong> {{ job?.workplace }}</p>
+          <p>
+            <strong>Expired Date:</strong>
+            {{ job?.expiredDate | date : "dd MMMM yyyy" }}
+          </p>
+          <p><strong>Required Experience:</strong> {{ job?.yearOfExp }} year(s)</p>
+          <p>
+            <strong>Contract:</strong>
+            <span
+              [ngClass]="{
+                'full-time': job?.contract === 'FullTime',
+                'part-time': job?.contract === 'PartTime',
+                temporary: job?.contract === 'Temporary',
+                freelance: job?.contract === 'Freelance',
+                internship: job?.contract === 'Internship'
+              }"
+              >{{ job?.contract }}</span
+            >
+          </p>
         </div>
-
-      </div>
-      <div class="info-container">
-        <mat-icon class="info-icon">work</mat-icon>
-        <div class="info-container-item">
-        <span class="info-label">Experience required</span>
-        <span class="info-text">{{ job.experience }}</span>
-        </div>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="job-description-card">
-    <mat-card-header>
-      <mat-card-title>Description</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>{{ job.description }}</p>
-    </mat-card-content>
-  </mat-card>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          class="apply-button"
+          mat-button
+          (click)="openModal()"
+          [disabled]="isApplied"
+        >
+          {{ isApplied ? "Applied" : "Apply" }}
+        </button>
+        <button mat-button>Save</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card class="job-company-card">
+      <mat-card-header>
+        <mat-card-title>Description</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="job-id">
+        <p>{{ job?.description }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="job-suggest">
+    <app-job-card
+      (viewClicked)="onViewJob($event)"
+      *ngFor="let job of jobList"
+      [job]="job"
+    ></app-job-card>
+  </div>
 </div>

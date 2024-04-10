@@ -8,3 +8,19 @@ app-job-card{
   margin: 4px;
   margin-top: 20px;
 }
+.banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  align-self: center;
+}
+

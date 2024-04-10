@@ -1,72 +1,45 @@
+@import '../../app.component.css';
 .job-card {
   display: flex;
-  align-items: center;
-  width: 360px;
+  width: 460px;
+  margin-bottom: 16px; 
 }
-
-.avatar {
-  width: 60px;
-  height: 60px;
-  background-color: #ccc;
-}
-
 mat-card-header {
   display: flex;
   width: 90%;
   padding-top: 8px;
-  padding-bottom: 8px;
+  padding-bottom: 4px;
   height: 60px;
+  border-bottom: 0.5px solid var(--primary);
 }
 
-mat-card-title,
-mat-card-subtitle {
-  max-height: calc(1.2em * 2);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  align-self: flex-start;
+mat-card-title {
+  font-size: 20px;
 }
-
-mat-card-content {
+.job-details {
   display: flex;
-  text-align: justify;
-  padding-bottom: 8px;
+  flex-direction: column;
 }
-
-mat-card-content p {
-  max-height: calc(1.5em * 4);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-wrap: break-word;
-  white-space: pre-line;
-}
-
-mat-card-actions {
+p{
   display: flex;
-  width: 100%;
+  align-items: center;
+  margin: 8px 0px;
 }
-
-mat-card-actions button {
-  flex: 1;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  height: 40px;
-}
-
-mat-card-actions button:first-child {
-  margin-right: 16px;
-}
-
-mat-card-actions button:nth-child(1) {
-  color: #fff;
-  background-color: var(--primary);
-  border-color: var(--primary);
-}
-
-mat-card-actions button:nth-child(2) {
+mat-icon{
+  margin-right: 12px;
   color: var(--primary);
-  border-color: var(--primary);
+}
+.job-details .inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-details .inline p {
+  margin-right: 20px;
+}
+span{
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-left: 4px;
 }
 

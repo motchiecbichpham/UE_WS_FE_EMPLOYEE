@@ -6,4 +6,5 @@ export type Candidate = {
   email: string;
   password: string;
   phone: string;
+  introduction?: string;
 };

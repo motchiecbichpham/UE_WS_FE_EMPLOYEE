@@ -1,0 +1,10 @@
+<div class="modal-container">
+  <h2 mat-dialog-title class="modal-title">Send your resume</h2>
+  <mat-dialog-content>
+    <input class="file-input" type="file" #fileInput accept=".pdf,.doc,.docx"
+  /></mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="submitFile(fileInput)">Submit</button>
+    <button mat-button mat-dialog-close class="close">Close</button>
+  </mat-dialog-actions>
+</div>

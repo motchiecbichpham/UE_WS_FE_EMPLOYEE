@@ -11,10 +11,12 @@ import { RegisterPageComponent } from './component/register-page/register-page.c
 import { HomePageComponent } from './component/home-page/home-page.component';
 import { JobDetailPageComponent } from './component/job-detail-page/job-detail-page.component';
 import { ProfilePageComponent } from './component/profile-page/profile-page.component';
-import { ApplicationDetailPageComponent } from './component/application-detail-page/application-detail-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JobCardComponent } from './layout/job-card/job-card.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptorService } from './service/auth-interceptor.service';
+import { ModalComponent } from './layout/modal/modal.component';
+import { ApplicationPageComponent } from './component/application-page/application-page.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
     HomePageComponent,
     JobDetailPageComponent,
     ProfilePageComponent,
-    ApplicationDetailPageComponent,
     JobCardComponent,
+    ModalComponent,
+    ApplicationPageComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,14 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [provideAnimationsAsync()],
+  providers: [
+    provideAnimationsAsync(),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

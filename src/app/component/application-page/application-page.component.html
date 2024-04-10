@@ -1,0 +1,42 @@
+<div *ngIf="applications.length === 0" class="empty-list-text">
+  No applications found.
+</div>
+<div *ngFor="let application of applications" class="application-card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ application.job.title }}</mat-card-title>
+      <mat-card-subtitle>{{ application.job.company.name }}</mat-card-subtitle>
+      <mat-card-subtitle>{{
+        application.job.company.introduction
+      }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Status: {{ application.job.status }}</p>
+      <div class="expired">
+        <p>
+          Contract:
+          <span
+            [ngClass]="{
+              'full-time': application.job.contract === 'FullTime',
+              'part-time': application.job.contract === 'PartTime',
+              temporary: application.job.contract === 'Temporary',
+              freelance: application.job.contract === 'Freelance',
+              internship: application.job.contract === 'Internship'
+            }"
+            >{{ application.job.contract }}</span
+          >
+        </p>
+        <p>Expired Date: {{ application.job.expiredDate | date : "dd MMMM yyyy"}}</p>
+        <mat-card-actions>
+          <button
+            mat-button
+            color="primary"
+            (click)="deleteApplication(application.id)"
+          >
+            Delete application
+          </button>
+        </mat-card-actions>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

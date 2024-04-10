@@ -1,0 +1,46 @@
+.modal-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.modal-container {
+  width: 480px;
+}
+mat-dialog-content {
+  margin-top: 20px;
+  justify-content: center;
+  display: flex;
+}
+
+.file-input {
+  border: 1px solid var(--primary);
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+mat-dialog-actions {
+  display: flex;
+  padding: 4px 24px;
+}
+
+mat-dialog-actions button {
+  flex: 1;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  height: 40px;
+}
+
+mat-dialog-actions button:first-child {
+  margin-right: 16px;
+}
+
+mat-dialog-actions button:nth-child(1) {
+  color: #fff;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+mat-dialog-actions button:nth-child(2) {
+  color: var(--primary);
+  border-color: var(--primary);
+}

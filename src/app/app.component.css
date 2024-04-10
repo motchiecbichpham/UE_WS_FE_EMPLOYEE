@@ -1,0 +1,58 @@
+.spacer {
+  flex: 1;
+}
+
+.full-time {
+  background-color: #cceeff;
+  color: #004080;
+}
+.part-time {
+  background-color: #d9ead3;
+  color: #38761d;
+}
+.temporary {
+  background-color: #ffeb9c;
+  color: #8b4513;
+}
+.freelance {
+  background-color: #e8d0ff;
+  color: #6a0dad;
+}
+.internship {
+  background-color: #ffcccc;
+  color: #b30000;
+}
+mat-card-actions button {
+  flex: 1;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  height: 44px;
+  margin: 12px 0px;
+}
+mat-card-actions button:first-child {
+  margin-right: 16px;
+}
+
+mat-card-actions button:nth-child(1) {
+  color: #fff;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+mat-card-actions button:nth-child(2) {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+mat-card-title{
+  color: var(--primary);
+}
+mat-card-title,
+mat-card-subtitle {
+  max-height: calc(1.5em * 2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  align-self: flex-start;
+}

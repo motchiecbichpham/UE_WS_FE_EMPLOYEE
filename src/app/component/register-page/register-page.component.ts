@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../service/auth.service';
+import { NotificationService } from '../../service/notification.service';
 
 @Component({
   selector: 'app-register-page',
@@ -25,7 +26,8 @@ export class RegisterPageComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private notiService: NotificationService
   ) {}
   ngOnInit(): void {}
 
@@ -43,7 +45,7 @@ export class RegisterPageComponent {
         this.router.navigate(['/login']);
       },
       (error) => {
-        console.error('Signup error:', error);
+        this.notiService.showNotification('Sign up failed', 'Close');
       }
     );
   }
