@@ -45,7 +45,7 @@ export class RegisterPageComponent {
         this.router.navigate(['/login']);
       },
       (error) => {
-        this.notiService.showNotification('Sign up failed', 'Close');
+        this.notiService.showNotification(error.error.message, 'Close', false);
       }
     );
   }

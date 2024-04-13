@@ -7,8 +7,18 @@
 .expired {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-
+.applied {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.applied button {
+  background-color: white;
+  border-width: 0px;
+  color: white;
+}
 button {
   border: 1px solid transparent;
   border-radius: 4px;
@@ -23,7 +33,7 @@ button {
   font-size: 28px;
 }
 p {
-  margin: 8px 0px;
+  margin: 4px 0px;
 }
 span {
   padding: 4px 8px;

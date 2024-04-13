@@ -22,18 +22,14 @@ export class JobService {
   }
   getJobById(
     jobId: number,
-    canId: number
+    candidateId: number
   ): Observable<{ isApplied: boolean; job: Job }> {
     const endpoint = API_ENDPOINTS.job.getJob;
     return this.http.get<{ isApplied: boolean; job: Job }>(endpoint, {
-      params: { jobId: jobId, canId: canId },
+      params: { jobId: jobId, candidateId: candidateId },
     });
   }
-  upload(
-    file: File,
-    jobId: number,
-    candidateId: number
-  ): Observable<string> {
+  upload(file: File, jobId: number, candidateId: number): Observable<string> {
     const formData: FormData = new FormData();
 
     formData.append('resume', file);

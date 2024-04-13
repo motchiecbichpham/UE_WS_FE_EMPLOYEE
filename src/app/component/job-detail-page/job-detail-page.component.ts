@@ -40,19 +40,31 @@ export class JobDetailPageComponent implements OnInit {
           .getJobById(this.id, this.profileCandidate?.id)
           .subscribe(
             (data) => {
-              this.job = data.job;
-              this.isApplied = data.isApplied;
+              if (data) {
+                this.job = data.job;
+                this.isApplied = data.isApplied;
+              }
             },
             (error) => {
-              this.notiService.showNotification('Load job failed', 'Close');
+              this.notiService.showNotification(
+                error.error.message,
+                'Close',
+                false
+              );
             }
           );
       this.jobService.getJobs().subscribe(
         (data) => {
-          this.jobList = data.filter((item) => item.id != this.id);
+          if (data) {
+            this.jobList = data.filter((item) => item.id != this.id);
+            if (this.jobList.length > 5) {
+              const shuffledList = this.jobList.sort(() => Math.random() - 0.5);
+              this.jobList = shuffledList.slice(0, 5);
+            }
+          }
         },
         (error) => {
-          this.notiService.showNotification('Load jobs failed', 'Close');
+          this.notiService.showNotification('Load jobs failed', 'Close', false);
         }
       );
     });
@@ -66,7 +78,6 @@ export class JobDetailPageComponent implements OnInit {
     const dialogRef = this.dialog.open(ModalComponent);
     dialogRef.componentInstance.fileSelected.subscribe((file: File) => {
       this.upload(file);
-      this.isApplied = true;
     });
   }
   upload(file: File): void {
@@ -74,8 +85,20 @@ export class JobDetailPageComponent implements OnInit {
       this.jobService
         .upload(file, this.job.id, this.profileCandidate.id)
         .subscribe(
-          (data) => {},
-          (err) => {}
+          (data) => {
+            this.isApplied = true;
+            this.notiService.showNotification(
+              'Submit application successfully',
+              'Close'
+            );
+          },
+          (err) => {
+            this.notiService.showNotification(
+              'Submit application failed',
+              'Close',
+              false
+            );
+          }
         );
     }
   }

@@ -50,7 +50,7 @@ export class HomePageComponent implements OnInit {
         this.setNumberOfItems(window.innerWidth, this.dataJobs);
       },
       (error) => {
-        this.notiService.showNotification('Load jobs failed', 'Close');
+        this.notiService.showNotification('Load jobs failed', 'Close', false);
       }
     );
   }

@@ -61,7 +61,7 @@ export class ProfilePageComponent implements OnInit {
         localStorage.setItem('candidateProfile', JSON.stringify(response));
       },
       (error) => {
-        this.notiService.showNotification('Update failed', 'Close');
+        this.notiService.showNotification(error.error.message, 'Close', false);
       }
     );
   }

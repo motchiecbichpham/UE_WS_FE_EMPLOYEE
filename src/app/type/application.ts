@@ -6,4 +6,5 @@ export type Application = {
   job: Job;
   candidate: Candidate;
   resumeName: string;
+  createdDate: Date;
 };

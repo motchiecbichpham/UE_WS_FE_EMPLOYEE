@@ -11,16 +11,19 @@ import {
 export class NotificationService {
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-  backgroundColor: string = 'green';
 
   constructor(private snackBar: MatSnackBar) {}
 
-  showNotification(message: string, action: string) {
+  showNotification(message: string, action: string, success: boolean = true) {
+    let panelClass = ['success-snackbar'];
+    if (success === false) {
+      panelClass = ['error-snackbar'];
+    }
     this.snackBar.open(message, action, {
       duration: 3000,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
-      panelClass: ['green-snackbar'],
+      panelClass: panelClass,
     });
   }
 }

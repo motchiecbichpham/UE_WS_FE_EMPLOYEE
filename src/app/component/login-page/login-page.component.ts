@@ -48,7 +48,7 @@ export class LoginPageComponent implements OnInit {
         this.router.navigate(['/home']);
       },
       (error) => {
-        this.notiService.showNotification('Load jobs failed', 'Close');
+        this.notiService.showNotification('Load jobs failed', 'Close', false);
       }
     );
   }

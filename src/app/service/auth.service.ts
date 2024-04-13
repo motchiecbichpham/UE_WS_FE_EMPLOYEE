@@ -12,7 +12,6 @@ export class AuthService {
 
   signup(candidate: Candidate): Observable<Candidate> {
     const endpoint = API_ENDPOINTS.auth.signup;
-
     return this.http.post<Candidate>(endpoint, candidate);
   }
   login(
@@ -29,7 +28,7 @@ export class AuthService {
   }
   updateProfile(candidate: Candidate): Observable<Candidate> {
     const endpoint = API_ENDPOINTS.auth.getCandidate + `${candidate.id}`;
-    return this.http.put<Candidate>(endpoint, candidate, {
+    return this.http.patch<Candidate>(endpoint, candidate, {
       responseType: 'json',
     });
   }

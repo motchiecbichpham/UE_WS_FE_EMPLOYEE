@@ -29,12 +29,17 @@ export class ApplicationPageComponent implements OnInit {
         (error) => {
           this.notiService.showNotification(
             'Load applications failed',
-            'Close'
+            'Close',
+            false
           );
         }
       );
     } else {
-      this.notiService.showNotification('Load applications failed', 'Close');
+      this.notiService.showNotification(
+        'Load applications failed',
+        'Close',
+        false
+      );
     }
   }
 
@@ -53,7 +58,8 @@ export class ApplicationPageComponent implements OnInit {
         (error) => {
           this.notiService.showNotification(
             'Delete application failed',
-            'Close'
+            'Close',
+            false
           );
         }
       );
