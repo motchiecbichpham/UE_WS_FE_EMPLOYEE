@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Candidate } from '../../type/candidate';
 import { AuthService } from '../../service/auth.service';
 import { NotificationService } from '../../service/notification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-page',
@@ -23,14 +24,12 @@ export class ProfilePageComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private notiService: NotificationService
+    private notiService: NotificationService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.resetForm();
-  }
-  get f() {
-    return this.profileForm.controls;
   }
 
   onSubmit() {
@@ -45,7 +44,9 @@ export class ProfilePageComponent implements OnInit {
     const profileCandidate: Candidate = candidate
       ? JSON.parse(candidate)
       : null;
-
+    if (!profileCandidate) {
+      this.router.navigate(['/login']);
+    }
     this.setFormValues(profileCandidate);
   }
   setFormValues(candidate: Candidate) {

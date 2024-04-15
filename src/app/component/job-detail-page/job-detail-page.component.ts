@@ -37,7 +37,7 @@ export class JobDetailPageComponent implements OnInit {
       this.id &&
         this.profileCandidate &&
         this.jobService
-          .getJobById(this.id, this.profileCandidate?.id)
+          .getJobById(this.id, this.profileCandidate?.id || -1)
           .subscribe(
             (data) => {
               if (data) {

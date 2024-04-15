@@ -28,7 +28,7 @@ export class AuthService {
   }
   updateProfile(candidate: Candidate): Observable<Candidate> {
     const endpoint = API_ENDPOINTS.auth.getCandidate + `${candidate.id}`;
-    return this.http.patch<Candidate>(endpoint, candidate, {
+    return this.http.put<Candidate>(endpoint, candidate, {
       responseType: 'json',
     });
   }

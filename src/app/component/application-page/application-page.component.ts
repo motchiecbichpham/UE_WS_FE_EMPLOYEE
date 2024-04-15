@@ -19,28 +19,20 @@ export class ApplicationPageComponent implements OnInit {
   ngOnInit(): void {
     const candidate = localStorage.getItem('candidateProfile');
     this.profileCandidate = candidate ? JSON.parse(candidate) : null;
-    if (this.profileCandidate) {
-      this.jobService.getApplications(this.profileCandidate.id).subscribe(
-        (data) => {
-          if (data) {
-            this.applications = data;
-          }
-        },
-        (error) => {
-          this.notiService.showNotification(
-            'Load applications failed',
-            'Close',
-            false
-          );
+    this.jobService.getApplications(this.profileCandidate?.id || -1).subscribe(
+      (data) => {
+        if (data) {
+          this.applications = data;
         }
-      );
-    } else {
-      this.notiService.showNotification(
-        'Load applications failed',
-        'Close',
-        false
-      );
-    }
+      },
+      (error) => {
+        this.notiService.showNotification(
+          'Load applications failed',
+          'Close',
+          false
+        );
+      }
+    );
   }
 
   deleteApplication(id: number): void {

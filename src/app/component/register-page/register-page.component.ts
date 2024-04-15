@@ -18,7 +18,10 @@ export class RegisterPageComponent {
   registerForm: FormGroup = this.fb.group({
     id: [null],
     email: new FormControl('', [Validators.email, Validators.required]),
-    password: new FormControl('', Validators.required),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(6),
+    ]),
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     dob: new FormControl('', Validators.required),

@@ -24,6 +24,15 @@ mat-card-content {
   width: 100%;
   color: white;
 }
+.button-login {
+  display: flex;
+  justify-content: center;
+  height: 48px;
+  width: 100%;
+  text-decoration: underline;
+  color: var(--primary);
+  margin-top: 4px;
+}
 mat-card{
   padding: 20px 16px;
 }

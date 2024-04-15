@@ -21,7 +21,7 @@ export class LoginPageComponent implements OnInit {
 
   loginForm: FormGroup = this.fb.group({
     email: new FormControl('', [Validators.email, Validators.required]),
-    password: new FormControl('', Validators.required),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
   constructor(
     private fb: FormBuilder,
@@ -48,7 +48,7 @@ export class LoginPageComponent implements OnInit {
         this.router.navigate(['/home']);
       },
       (error) => {
-        this.notiService.showNotification('Load jobs failed', 'Close', false);
+        this.notiService.showNotification('Login failed! Re-check and try again', 'Close', false);
       }
     );
   }
